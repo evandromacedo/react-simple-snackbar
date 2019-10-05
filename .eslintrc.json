@@ -16,5 +16,10 @@
     "sourceType": "module"
   },
   "plugins": ["react"],
-  "rules": {}
+  "rules": {
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "comma-dangle": "off",
+    "space-before-function-paren": "off"
+  }
 }
