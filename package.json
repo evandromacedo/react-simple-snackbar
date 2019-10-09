@@ -2,7 +2,7 @@
   "name": "react-simple-snackbar",
   "version": "1.0.0",
   "description": "A really simple React snackbar component",
-  "main": "index.js",
+  "main": "dist/bundle.js",
   "scripts": {
     "test": "NODE_ENV=test jest --watch",
     "start": "rollup -c -w",
@@ -35,6 +35,7 @@
     "@babel/core": "^7.6.2",
     "@babel/preset-env": "^7.6.2",
     "@babel/preset-react": "^7.0.0",
+    "autoprefixer": "^9.6.4",
     "babel-jest": "^24.9.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
