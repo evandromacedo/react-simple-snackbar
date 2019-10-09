@@ -2,7 +2,12 @@
   "name": "react-simple-snackbar",
   "version": "1.0.0",
   "description": "A really simple React snackbar component",
-  "main": "dist/bundle.js",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "jsnext:main": "dist/index.es.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "test": "NODE_ENV=test jest --watch",
     "start": "rollup -c -w",
