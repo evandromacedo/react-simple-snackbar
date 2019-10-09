@@ -4,7 +4,7 @@ import external from 'rollup-plugin-peer-deps-external'
 import postcss from 'rollup-plugin-postcss'
 import resolve from 'rollup-plugin-node-resolve'
 import url from 'rollup-plugin-url'
-import minify from 'rollup-plugin-babel-minify'
+import { terser } from 'rollup-plugin-terser'
 import autoprefixer from 'autoprefixer'
 
 export default {
@@ -34,6 +34,6 @@ export default {
     }),
     resolve(),
     commonjs(),
-    process.env.NODE_ENV === 'production' && minify(),
+    process.env.NODE_ENV === 'production' && terser(),
   ],
 }
