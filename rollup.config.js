@@ -5,6 +5,7 @@ import postcss from 'rollup-plugin-postcss'
 import resolve from 'rollup-plugin-node-resolve'
 import url from 'rollup-plugin-url'
 import minify from 'rollup-plugin-babel-minify'
+import autoprefixer from 'autoprefixer'
 
 export default {
   input: 'src/index.js',
@@ -25,6 +26,7 @@ export default {
     postcss({
       modules: true,
       minimize: true,
+      plugins: [autoprefixer()],
     }),
     url(),
     babel({
