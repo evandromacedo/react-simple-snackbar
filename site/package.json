@@ -1,0 +1,28 @@
+{
+  "name": "site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html",
+    "build": "parcel build index.html --public-url http://evandromacedo.com/react-simple-snackbar/",
+    "predeploy": "rm -rf dist && npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "keywords": [],
+  "author": "Evandro Macedo <evandro.hcm@gmail.com> (https://github.com/evandromacedo)",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-simple-snackbar": "file:.."
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "gh-pages": "^2.1.1",
+    "parcel-bundler": "^1.12.4"
+  }
+}
