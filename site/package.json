@@ -12,8 +12,6 @@
   "author": "Evandro Macedo <evandro.hcm@gmail.com> (https://github.com/evandromacedo)",
   "license": "MIT",
   "dependencies": {
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2",
     "react-simple-snackbar": "file:.."
   },
   "devDependencies": {
@@ -21,5 +19,9 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "parcel-bundler": "^1.12.4"
+  },
+  "alias": {
+    "react": "../node_modules/react",
+    "react-dom": "../node_modules/react-dom"
   }
 }
