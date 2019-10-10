@@ -31,6 +31,7 @@ export default {
     url(),
     babel({
       exclude: 'node_modules/**',
+      runtimeHelpers: true,
     }),
     resolve(),
     commonjs(),
