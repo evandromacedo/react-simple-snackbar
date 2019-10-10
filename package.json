@@ -12,7 +12,9 @@
     "test": "NODE_ENV=test jest --watch",
     "start": "rollup -c -w",
     "build": "NODE_ENV=production rollup -c",
-    "build:dev": "rollup -c"
+    "build:dev": "rollup -c",
+    "predeploy": "npm run build && cd site && npm install && npm run build",
+    "deploy": "gh-pages -d site/dist"
   },
   "repository": {
     "type": "git",
@@ -51,6 +53,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-standard": "^4.0.1",
+    "gh-pages": "^2.1.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
     "prettier": "^1.18.2",
