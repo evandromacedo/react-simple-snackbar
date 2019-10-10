@@ -6,9 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel index.html",
-    "build": "parcel build index.html --public-url /react-simple-snackbar",
-    "predeploy": "rm -rf dist && npm run build",
-    "deploy": "gh-pages -d dist"
+    "build": "rm -rf dist && parcel build index.html --public-url /react-simple-snackbar"
   },
   "keywords": [],
   "author": "Evandro Macedo <evandro.hcm@gmail.com> (https://github.com/evandromacedo)",
@@ -22,7 +20,6 @@
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
-    "gh-pages": "^2.1.1",
     "parcel-bundler": "^1.12.4"
   }
 }
