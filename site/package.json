@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel index.html",
-    "build": "parcel build index.html --public-url http://evandromacedo.com/react-simple-snackbar/",
+    "build": "parcel build index.html --public-url /react-simple-snackbar",
     "predeploy": "rm -rf dist && npm run build",
     "deploy": "gh-pages -d dist"
   },
