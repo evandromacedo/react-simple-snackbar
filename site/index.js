@@ -1,11 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom'
-import ReactSimpleSnackbar from 'react-simple-snackbar'
+import SnackbarProvider, { useSnackbar } from 'react-simple-snackbar'
 
-class App extends React.Component {
-  render() {
-    return <ReactSimpleSnackbar />
-  }
+console.log(useSnackbar)
+
+function App() {
+  return (
+    <SnackbarProvider>
+      <Button />
+    </SnackbarProvider>
+  )
+}
+
+function Button() {
+  const [open, close] = useSnackbar()
+
+  return <button onClick={() => open(<p>Junior bassssssss</p>)}>Open Snackbar</button>
 }
 
 ReactDOM.render(<App />, document.getElementById('root'))

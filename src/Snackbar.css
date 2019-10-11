@@ -1,16 +1,62 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 .snackbar {
-  visibility: visible;
-  min-width: 250px;
-  margin-left: -125px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 0;
+  bottom: 16px;
+  left: 0;
+  z-index: 1;
+  transition: opacity 200ms, bottom 200ms, transform 200ms;
+  position: fixed;
+  margin: 8px 8px 0 8px;
+  /* transform: scale(0.8); */
+}
+
+.snackbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
   background-color: #333;
   color: #fff;
+  font-family: sans-serif;
+  border-radius: 4px;
   text-align: center;
-  border-radius: 2px;
   padding: 16px;
-  position: fixed;
-  z-index: 1;
-  left: 50%;
-  bottom: 30px;
   font-size: 1rem;
-  transition: opacity 500ms, bottom 500ms;
+  min-width: 334px;
+  max-width: 672px;
+}
+
+.snackbar-inner-text {
+  text-align: left;
+  flex-grow: 1;
+}
+
+.snackbar-inner-actions {
+  margin-left: 0.8rem;
+  transform: translateY(1px);
+}
+
+.snackbar-enter {
+  /* transform: scale(0.95); */
+  bottom: 0;
+  opacity: 0;
+}
+
+.snackbar-enter-active {
+  /* transform: scale(1); */
+  bottom: 16px;
+  opacity: 1;
+}
+
+.snackbar-exit-active {
+  /* transform: scale(0.95); */
+  bottom: 0;
+  opacity: 0;
 }
