@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react'
+import React, { createContext, useEffect, useContext, useState } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import styles from './Snackbar.css'
 
@@ -8,42 +8,38 @@ const wait = (amount = 0) => new Promise(resolve => setTimeout(resolve, amount))
 // Context
 const SnackbarContext = createContext(null)
 
-let customStyles
-let customTimeout
-
 export default function Snackbar({ className, children }) {
   const [open, setOpen] = useState(false)
   const [timeoutId, setTimeoutId] = useState(null)
   const [text, setText] = useState(null)
+  const [customStyles, setCustomStyles] = useState({})
 
-  const triggerSnackbar = text => {
+  const triggerSnackbar = (text, styles, timeout) => {
     setText(text)
+    setCustomStyles(styles)
     setOpen(true)
     clearTimeout(timeoutId)
     setTimeoutId(
       setTimeout(() => {
         setOpen(false)
-      }, customTimeout)
+      }, timeout)
     )
   }
 
-  const openSnackbar = async text => {
+  const openSnackbar = async (text, styles, timeout) => {
     if (open === true) {
       setOpen(false)
       await wait(250)
     }
 
-    triggerSnackbar(text)
+    triggerSnackbar(text, styles, timeout)
   }
 
   const closeSnackbar = () => {
     setOpen(false)
   }
 
-  let classNames = styles['snackbar-inner']
-  classNames += className ? ` ${className}` : ''
-
-  const providerValue = [openSnackbar, closeSnackbar]
+  const providerValue = { openSnackbar, closeSnackbar }
 
   return (
     <SnackbarContext.Provider value={providerValue}>
@@ -61,7 +57,7 @@ export default function Snackbar({ className, children }) {
         }}
       >
         <div>
-          <div className={classNames} style={customStyles}>
+          <div className={styles['snackbar-inner']} style={customStyles}>
             <p className={styles['snackbar-inner__text']}>{text}</p>
             <div onClick={closeSnackbar} className={styles['snackbar-inner__close']}>
               <CloseIcon />
@@ -74,23 +70,25 @@ export default function Snackbar({ className, children }) {
 }
 
 const CloseIcon = () => (
-  <svg
-    className={styles['snackbar-inner__close-svg']}
-    width="1em"
-    height="1em"
-    viewBox="0 0 12 12"
-  >
-    <path
-      d="M11.657 1.757L7.414 6l4.243 4.243-1.414 1.414L6 7.414l-4.243 4.243-1.414-1.414L4.586 6 .343 1.757 1.757.343 6 4.586 10.243.343z"
-      fill="#FFF"
-      fillRule="evenodd"
-    />
-  </svg>
+  <>
+    <svg
+      className={styles['snackbar-inner__close-svg']}
+      width="1em"
+      height="1em"
+      viewBox="0 0 12 12"
+    >
+      <path
+        fill="#FFF"
+        d="M11.73 1.58L7.31 6l4.42 4.42-1.06 1.06-4.42-4.42-4.42 4.42-1.06-1.06L5.19 6 .77 1.58 1.83.52l4.42 4.42L10.67.52z"
+        fillRule="evenodd"
+      />
+    </svg>
+  </>
 )
 
 export const useSnackbar = ({ styles = {}, timeout = 3000 } = {}) => {
-  customStyles = styles
-  customTimeout = timeout
+  const { openSnackbar, closeSnackbar } = useContext(SnackbarContext)
+  const open = text => openSnackbar(text, styles, timeout)
 
-  return useContext(SnackbarContext)
+  return [open, closeSnackbar]
 }
