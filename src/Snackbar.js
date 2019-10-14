@@ -18,6 +18,7 @@ export default function Snackbar({ className, children }) {
 
   const triggerSnackbar = (text, position, style, closeStyle, timeout) => {
     setText(text)
+    setPosition(position)
     setCustomStyles(style)
     setCloseCustomStyles(closeStyle)
     setOpen(true)
@@ -52,11 +53,17 @@ export default function Snackbar({ className, children }) {
         timeout={150}
         mountOnEnter
         unmountOnExit
-        className={styles['snackbar-wrapper']}
+        className={`${styles['snackbar-wrapper']} ${
+          styles[`snackbar-wrapper-${position}`]
+        }`}
         classNames={{
-          enter: styles['snackbar-enter'],
-          enterActive: styles['snackbar-enter-active'],
-          exitActive: styles['snackbar-exit-active'],
+          enter: `${styles['snackbar-enter']} ${styles[`snackbar-enter-${position}`]}`,
+          enterActive: `${styles['snackbar-enter-active']} ${
+            styles[`snackbar-enter-active-${position}`]
+          }`,
+          exitActive: `${styles['snackbar-exit-active']} ${
+            styles[`snackbar-exit-active-${position}`]
+          }`,
         }}
       >
         <div>
@@ -97,6 +104,3 @@ export const useSnackbar = ({
 
   return [open, closeSnackbar]
 }
-
-// top-left, top-center, top-right
-// bottom-left, bottom-center, bottom-right
