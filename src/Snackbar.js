@@ -12,10 +12,11 @@ export default function Snackbar({ className, children }) {
   const [open, setOpen] = useState(false)
   const [timeoutId, setTimeoutId] = useState(null)
   const [text, setText] = useState(null)
+  const [position, setPosition] = useState('bottom-center')
   const [customStyles, setCustomStyles] = useState({})
   const [closeCustomStyles, setCloseCustomStyles] = useState({})
 
-  const triggerSnackbar = (text, style, closeStyle, timeout) => {
+  const triggerSnackbar = (text, position, style, closeStyle, timeout) => {
     setText(text)
     setCustomStyles(style)
     setCloseCustomStyles(closeStyle)
@@ -28,13 +29,13 @@ export default function Snackbar({ className, children }) {
     )
   }
 
-  const openSnackbar = async (text, style, closeStyle, timeout) => {
+  const openSnackbar = async (text, position, style, closeStyle, timeout) => {
     if (open === true) {
       setOpen(false)
       await wait(250)
     }
 
-    triggerSnackbar(text, style, closeStyle, timeout)
+    triggerSnackbar(text, position, style, closeStyle, timeout)
   }
 
   const closeSnackbar = () => {
@@ -51,7 +52,7 @@ export default function Snackbar({ className, children }) {
         timeout={150}
         mountOnEnter
         unmountOnExit
-        className={styles.snackbar}
+        className={styles['snackbar-wrapper']}
         classNames={{
           enter: styles['snackbar-enter'],
           enterActive: styles['snackbar-enter-active'],
@@ -59,11 +60,11 @@ export default function Snackbar({ className, children }) {
         }}
       >
         <div>
-          <div className={styles['snackbar-inner']} style={customStyles}>
-            <p className={styles['snackbar-inner__text']}>{text}</p>
+          <div className={styles.snackbar} style={customStyles}>
+            <p className={styles.snackbar__text}>{text}</p>
             <div
               onClick={closeSnackbar}
-              className={styles['snackbar-inner__close']}
+              className={styles.snackbar__close}
               style={closeCustomStyles}
             >
               <CloseIcon />
@@ -85,9 +86,17 @@ const CloseIcon = () => (
   </svg>
 )
 
-export const useSnackbar = ({ style = {}, closeStyle = {}, timeout = 3000 } = {}) => {
+export const useSnackbar = ({
+  position = 'bottom-center',
+  style = {},
+  closeStyle = {},
+  timeout = 3000,
+} = {}) => {
   const { openSnackbar, closeSnackbar } = useContext(SnackbarContext)
-  const open = text => openSnackbar(text, style, closeStyle, timeout)
+  const open = text => openSnackbar(text, position, style, closeStyle, timeout)
 
   return [open, closeSnackbar]
 }
+
+// top-left, top-center, top-right
+// bottom-left, bottom-center, bottom-right
