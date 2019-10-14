@@ -95,7 +95,7 @@ export const useSnackbar = ({
   closeStyle = {},
 } = {}) => {
   const { openSnackbar, closeSnackbar } = useContext(SnackbarContext)
-  const open = (text, timeout = 3000) =>
+  const open = (text, timeout = 5000) =>
     openSnackbar(text, position, style, closeStyle, timeout)
 
   return [open, closeSnackbar]
