@@ -21,6 +21,7 @@
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
     "comma-dangle": "off",
-    "space-before-function-paren": "off"
+    "space-before-function-paren": "off",
+    "no-unused-vars": "warn"
   }
 }
