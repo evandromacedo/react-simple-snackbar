@@ -88,16 +88,16 @@
 }
 
 .snackbar-enter {
-  bottom: 0;
+  transform: translateY(16px);
   opacity: 0;
 }
 
 .snackbar-enter-active {
-  bottom: 16px;
+  transform: translateY(0px);
   opacity: 1;
 }
 
 .snackbar-exit-active {
-  bottom: 0;
+  transform: translateY(16px);
   opacity: 0;
 }
