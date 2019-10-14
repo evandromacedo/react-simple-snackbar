@@ -58,6 +58,7 @@
   text-align: left;
 }
 
+/* Responsiveness based on Material Design */
 @media (max-width: 480px), (max-width: 344px) {
   .snackbar {
     min-width: 100%;
@@ -111,6 +112,7 @@
   }
 }
 
+/* CSSTransition classNames logic */
 .snackbar-enter,
 .snackbar-exit-active {
   opacity: 0;
