@@ -7,6 +7,7 @@
   left: 0;
   z-index: 1;
   transition: opacity 150ms, transform 150ms;
+  pointer-events: none;
 }
 
 .snackbar-wrapper-top-left,
@@ -67,6 +68,7 @@
   flex-grow: 1;
   padding: 14px 16px;
   margin: 0;
+  pointer-events: auto;
 }
 
 .snackbar__close {
@@ -82,6 +84,7 @@
   margin-right: 8px;
   cursor: pointer;
   position: relative;
+  pointer-events: auto;
   -webkit-tap-highlight-color: transparent;
 
   /* SVG icon properties */
