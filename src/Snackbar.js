@@ -8,7 +8,7 @@ const wait = (amount = 0) => new Promise(resolve => setTimeout(resolve, amount))
 // Context
 const SnackbarContext = createContext(null)
 
-export default function Snackbar({ className, children }) {
+export default function Snackbar({ children }) {
   const [open, setOpen] = useState(false)
   const [timeoutId, setTimeoutId] = useState(null)
   const [text, setText] = useState(null)
