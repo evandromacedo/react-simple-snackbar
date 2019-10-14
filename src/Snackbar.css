@@ -9,22 +9,26 @@
   transition: opacity 150ms, bottom 150ms, transform 150ms;
   position: fixed;
   margin: 8px 8px 0 8px;
-  /* transform: scale(0.8); */
 }
 
 .snackbar-inner {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  background-color: #333;
-  color: rgba(255, 255, 255, 0.87);
-  font-family: sans-serif;
   border-radius: 4px;
-  text-align: center;
   min-width: 334px;
   max-width: 672px;
+  background-color: #333;
   box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14),
     0 1px 18px 0 rgba(0, 0, 0, 0.12);
+  -webkit-font-smoothing: antialiased;
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.87);
+  letter-spacing: 0.25px;
+  line-height: 20px;
+  text-align: left;
 }
 
 @media (max-width: 480px), (max-width: 344px) {
@@ -34,12 +38,9 @@
 }
 
 .snackbar-inner__text {
-  font-size: 14px;
-  letter-spacing: 0.25px;
-  line-height: 20px;
-  text-align: left;
   flex-grow: 1;
   padding: 14px 16px;
+  margin: 0;
 }
 
 .snackbar-inner__close {
@@ -86,19 +87,16 @@
 }
 
 .snackbar-enter {
-  /* transform: scale(0.95); */
   bottom: 0;
   opacity: 0;
 }
 
 .snackbar-enter-active {
-  /* transform: scale(1); */
   bottom: 16px;
   opacity: 1;
 }
 
 .snackbar-exit-active {
-  /* transform: scale(0.95); */
   bottom: 0;
   opacity: 0;
 }

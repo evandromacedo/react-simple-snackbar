@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react'
+import React, { createContext, useContext, useState } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import styles from './Snackbar.css'
 
@@ -8,53 +8,52 @@ const wait = (amount = 0) => new Promise(resolve => setTimeout(resolve, amount))
 // Context
 const SnackbarContext = createContext(null)
 
-// export default function Snackbar({ timeout = 3000, className, children }) {
-export default function Snackbar({ timeout = 3000, className, children }) {
-  const [openState, setOpenState] = useState(false)
-  const [snackbarTimeoutID, setSnackbarTimeoutID] = useState(null)
-  const [node, setNode] = useState(null)
+let customStyles
+let customTimeout
 
-  useEffect(() => {
-    console.log('Funfou!')
-  }, [])
+export default function Snackbar({ className, children }) {
+  const [open, setOpen] = useState(false)
+  const [timeoutId, setTimeoutId] = useState(null)
+  const [text, setText] = useState(null)
 
-  const triggerSnackbar = node => {
-    setNode(node)
-    setOpenState(true)
-    clearTimeout(snackbarTimeoutID)
-    setSnackbarTimeoutID(
+  const triggerSnackbar = text => {
+    setText(text)
+    setOpen(true)
+    clearTimeout(timeoutId)
+    setTimeoutId(
       setTimeout(() => {
-        setOpenState(false)
-      }, timeout)
+        setOpen(false)
+      }, customTimeout)
     )
   }
 
-  const open = async node => {
-    if (openState === true) {
-      setOpenState(false)
+  const openSnackbar = async text => {
+    if (open === true) {
+      setOpen(false)
       await wait(250)
     }
 
-    triggerSnackbar(node)
+    triggerSnackbar(text)
   }
 
-  const close = () => {
-    setOpenState(false)
+  const closeSnackbar = () => {
+    setOpen(false)
   }
 
-  let classNames = styles.snackbar
+  let classNames = styles['snackbar-inner']
   classNames += className ? ` ${className}` : ''
 
+  const providerValue = [openSnackbar, closeSnackbar]
+
   return (
-    <SnackbarContext.Provider value={[open, close]}>
+    <SnackbarContext.Provider value={providerValue}>
       {children}
       <CSSTransition
-        in={openState}
-        timeout={200}
+        in={open}
+        timeout={150}
         mountOnEnter
         unmountOnExit
-        className={classNames}
-        classNames="snackbar"
+        className={styles.snackbar}
         classNames={{
           enter: styles['snackbar-enter'],
           enterActive: styles['snackbar-enter-active'],
@@ -62,17 +61,11 @@ export default function Snackbar({ timeout = 3000, className, children }) {
         }}
       >
         <div>
-          <div className={styles['snackbar-inner']}>
-            {/* <div className={styles['snackbar-inner-text']}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam eveniet at
-              ullam suscipit neque animi ipsa ipsum numquam voluptatum porro consectetur
-              libero, pariatur voluptate doloremque ab hic. Error, quam voluptatum.
-            </div> */}
-            <div className={styles['snackbar-inner-text']}>Lorem ipsum</div>
-            {/* <div></div> */}
-            {/* <div className={styles['snackbar-inner-actions']}>×</div> */}
-            {/* <div className={styles['snackbar-inner-actions']}>╳</div> */}
-            <div className={styles['snackbar-inner-actions']}>✕</div>
+          <div className={classNames} style={customStyles}>
+            <p className={styles['snackbar-inner__text']}>{text}</p>
+            <div onClick={closeSnackbar} className={styles['snackbar-inner__close']}>
+              <CloseIcon />
+            </div>
           </div>
         </div>
       </CSSTransition>
@@ -80,4 +73,24 @@ export default function Snackbar({ timeout = 3000, className, children }) {
   )
 }
 
-export const useSnackbar = () => useContext(SnackbarContext)
+const CloseIcon = () => (
+  <svg
+    className={styles['snackbar-inner__close-svg']}
+    width="1em"
+    height="1em"
+    viewBox="0 0 12 12"
+  >
+    <path
+      d="M11.657 1.757L7.414 6l4.243 4.243-1.414 1.414L6 7.414l-4.243 4.243-1.414-1.414L4.586 6 .343 1.757 1.757.343 6 4.586 10.243.343z"
+      fill="#FFF"
+      fillRule="evenodd"
+    />
+  </svg>
+)
+
+export const useSnackbar = ({ styles = {}, timeout = 3000 } = {}) => {
+  customStyles = styles
+  customTimeout = timeout
+
+  return useContext(SnackbarContext)
+}
