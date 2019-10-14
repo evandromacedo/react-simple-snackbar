@@ -16,7 +16,12 @@ export default function Snackbar({ children }) {
   const [customStyles, setCustomStyles] = useState({})
   const [closeCustomStyles, setCloseCustomStyles] = useState({})
 
-  const triggerSnackbar = (text, position, style, closeStyle, timeout) => {
+  const openSnackbar = async (text, position, style, closeStyle, timeout) => {
+    if (open === true) {
+      setOpen(false)
+      await wait(250)
+    }
+
     setText(text)
     setPosition(position)
     setCustomStyles(style)
@@ -28,15 +33,6 @@ export default function Snackbar({ children }) {
         setOpen(false)
       }, timeout)
     )
-  }
-
-  const openSnackbar = async (text, position, style, closeStyle, timeout) => {
-    if (open === true) {
-      setOpen(false)
-      await wait(250)
-    }
-
-    triggerSnackbar(text, position, style, closeStyle, timeout)
   }
 
   const closeSnackbar = () => {
@@ -97,10 +93,10 @@ export const useSnackbar = ({
   position = 'bottom-center',
   style = {},
   closeStyle = {},
-  timeout = 3000,
 } = {}) => {
   const { openSnackbar, closeSnackbar } = useContext(SnackbarContext)
-  const open = text => openSnackbar(text, position, style, closeStyle, timeout)
+  const open = (text, timeout = 3000) =>
+    openSnackbar(text, position, style, closeStyle, timeout)
 
   return [open, closeSnackbar]
 }
