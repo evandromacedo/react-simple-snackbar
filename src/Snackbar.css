@@ -58,14 +58,10 @@
   cursor: pointer;
   position: relative;
   -webkit-tap-highlight-color: transparent;
-}
 
-.snackbar-inner__close-svg {
+  /* SVG icon properties */
   font-size: 12px;
-}
-
-.snackbar-inner__close-svg path {
-  fill: rgba(255, 255, 255, 0.87);
+  color: rgba(255, 255, 255, 0.87);
 }
 
 .snackbar-inner__close:before {
