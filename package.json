@@ -9,10 +9,11 @@
     "dist"
   ],
   "scripts": {
-    "test": "NODE_ENV=test jest --watch",
     "start": "rollup -c -w",
     "build": "NODE_ENV=production rollup -c",
     "build:dev": "rollup -c",
+    "test": "NODE_ENV=test jest",
+    "test:dev": "NODE_ENV=test jest --watch",
     "predeploy": "npm run build && cd site && npm install && npm run build",
     "deploy": "gh-pages -d site/dist"
   },
