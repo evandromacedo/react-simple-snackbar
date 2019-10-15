@@ -1,13 +1,11 @@
 import React from 'react'
 import toJSON from 'enzyme-to-json'
-import SnackbarProvider, { useSnackbar } from './Snackbar'
+import SnackbarProvider, {
+  useSnackbar,
+  defaultDuration,
+  defaultPosition,
+} from './Snackbar'
 import { shallow, mount } from 'enzyme'
-
-// const Component = () => {
-//   const [open] = useSnackbar()
-
-//   return <button onClick={() => open('teste')}>Button</button>
-// }
 
 const ComponentMock = ({
   text = '',
@@ -33,17 +31,22 @@ const mountWithProvider = component => {
 }
 
 describe('<Snackbar />', () => {
+  // Reset fake timers on each test
+  beforeEach(() => {
+    jest.useFakeTimers()
+  })
+
   it('should render properly', () => {
     shallow(<SnackbarProvider />)
   })
 
-  it('should render with default values when nothing is passed to useSnackbar()', () => {
+  it('should render with default values when nothing is passed neither to useSnackbar() nor open()', () => {
     const wrapper = mountWithProvider(<ComponentMock />)
     const Transition = wrapper.find('Transition')
 
     // Position bottom-center
     expect(Transition.props().className).toEqual(
-      'snackbar-wrapper snackbar-wrapper-bottom-center'
+      `snackbar-wrapper snackbar-wrapper-${defaultPosition}`
     )
 
     // No snackbar rendered before open()
@@ -53,34 +56,17 @@ describe('<Snackbar />', () => {
     const Component = wrapper.find(ComponentMock)
     Component.find('[data-test="open"]').simulate('click')
 
+    // setTimout called with 5000ms delay
+    expect(setTimeout).toHaveBeenCalledWith(expect.any(Function), defaultDuration)
+
+    // Open snackbar with '' text
+    const SnackbarText = wrapper.find('.snackbar__text')
+    expect(SnackbarText.text()).toEqual('')
+
     // No styles for snackbar and close button
     const Snackbar = wrapper.find('.snackbar')
     expect(Snackbar.props().style).toEqual({})
     const SnackbarClose = wrapper.find('.snackbar__close')
     expect(SnackbarClose.props().style).toEqual({})
-
-    // Open snackbar with '' text
-    const SnackbarText = wrapper.find('.snackbar__text')
-    expect(SnackbarText.text()).toEqual('')
-  })
-
-  it('should open snackbar with default timeout', () => {
-    const wrapper = mountWithProvider(<ComponentMock />)
-    //   jest
-    // .spyOn(Context, 'useDispatch')
-    // .mockImplementation(() => ({ removeChampion: removeChampionMock }));
-    // console.log(toJSON(Snackbar))
-    // console.log(wrapper.debug())
-  })
-
-  it('im just testing stuff', () => {
-    const wrapper = mountWithProvider(<ComponentMock />)
-
-    const ComponentMockTest = wrapper.find(ComponentMock)
-    // console.log(toJSON(ComponentTest))
-    ComponentMockTest.find('[data-test="open"]').simulate('click')
-    // wrapper.update()
-
-    // console.log(wrapper.debug())
   })
 })
