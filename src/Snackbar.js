@@ -133,8 +133,9 @@ export const useSnackbar = ({
     position = defaultPosition
   }
 
-  const open = (text = '', duration = defaultDuration) =>
+  const open = (text = '', duration = defaultDuration) => {
     openSnackbar(text, position, style, closeStyle, duration)
+  }
 
   // Returns methods in hooks array way
   return [open, closeSnackbar]
