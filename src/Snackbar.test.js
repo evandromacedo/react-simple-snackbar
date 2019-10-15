@@ -1,10 +1,7 @@
 import React from 'react'
 import { act } from 'react-dom/test-utils'
-import SnackbarProvider, {
-  useSnackbar,
-  defaultDuration,
-  defaultPosition,
-} from './Snackbar'
+import SnackbarProvider, { useSnackbar } from '.'
+import { defaultDuration, defaultPosition } from './Snackbar'
 import { shallow, mount } from 'enzyme'
 
 const ComponentMock = ({
