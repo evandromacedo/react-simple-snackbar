@@ -107,7 +107,7 @@ const CloseIcon = () => (
 )
 
 // Possible snackbar's position
-const positions = [
+export const positions = [
   'top-left',
   'top-center',
   'top-right',
@@ -116,8 +116,8 @@ const positions = [
   'bottom-right',
 ]
 
-const defaultPosition = 'bottom-center'
-const defaultDuration = 5000
+export const defaultPosition = 'bottom-center'
+export const defaultDuration = 5000
 
 // Custom hook that manages snackbar's context
 // Receives snackbar's properties and wraps the openSnackbar method
