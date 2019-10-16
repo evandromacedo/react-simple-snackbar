@@ -2,7 +2,7 @@ import React from 'react'
 import { act } from 'react-dom/test-utils'
 import { renderHook } from '@testing-library/react-hooks'
 import SnackbarProvider, { useSnackbar } from '.'
-import { defaultDuration, defaultPosition } from './Snackbar'
+import { defaultPosition, defaultDuration, defaultInterval } from './Snackbar'
 import { shallow, mount } from 'enzyme'
 
 const ComponentMock = ({
@@ -35,6 +35,7 @@ describe('<Snackbar />', () => {
   })
 
   it('shoud return 2 functions in array on useSnackbar()', () => {
+    // Necessary wrap the hook in teh context
     const wrapper = ({ children }) => <SnackbarProvider>{children}</SnackbarProvider>
     const { result } = renderHook(() => useSnackbar(), { wrapper })
     const [open, close] = result.current
@@ -213,33 +214,40 @@ describe('<Snackbar />', () => {
   it('should remove the current snackbar and apply a new one when open() is called again before duration ends', () => {
     const wrapper = mountWithProvider(<ComponentMock />)
 
-    // Simulates open()
+    // Simulates first open()
     const Component = wrapper.find(ComponentMock)
     const OpenButton = Component.find('[data-test="open"]')
 
     OpenButton.simulate('click')
 
+    // "in" prop has to be true
     let Transition = wrapper.find('Transition')
     expect(Transition.props().in).toBe(true)
 
+    // Simulates second open()
     OpenButton.simulate('click')
 
+    // "in" prop has to be false
     Transition = wrapper.find('Transition')
     expect(Transition.props().in).toBe(false)
 
+    // Advance time by 250ms
     act(() => {
-      jest.advanceTimersByTime(250)
+      jest.advanceTimersByTime(defaultInterval)
       wrapper.update()
     })
 
+    // "in" prop has to be true after delay
     Transition = wrapper.find('Transition')
     expect(Transition.props().in).toBe(true)
 
+    // Advance time by 5 seconds
     act(() => {
-      jest.advanceTimersByTime(5000)
+      jest.advanceTimersByTime(defaultDuration)
       wrapper.update()
     })
 
+    // "in" prop has to be false after duration ends
     Transition = wrapper.find('Transition')
     expect(Transition.props().in).toBe(false)
   })

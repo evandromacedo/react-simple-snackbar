@@ -4,6 +4,7 @@ import styles from './Snackbar.css'
 
 export const defaultPosition = 'bottom-center'
 export const defaultDuration = 5000
+export const defaultInterval = 250
 
 // Context used by the custom hook useSnackbar()
 const SnackbarContext = createContext(null)
@@ -40,7 +41,7 @@ export default function Snackbar({ children }) {
       setOpen(false)
       setTimeout(() => {
         triggerSnackbar(text, duration, position, style, closeStyle)
-      }, 250)
+      }, defaultInterval)
     } else {
       triggerSnackbar(text, duration, position, style, closeStyle)
     }
@@ -137,7 +138,7 @@ export const useSnackbar = ({
     position = defaultPosition
   }
 
-  const open = (text = '', duration = defaultDuration) => {
+  function open(text = '', duration = defaultDuration) {
     openSnackbar(text, duration, position, style, closeStyle)
   }
 
