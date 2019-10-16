@@ -2,8 +2,8 @@ import React, { createContext, useContext, useState } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import styles from './Snackbar.css'
 
-// Based on 'waait' package from Wes Bos
-export const wait = (amount = 0) => new Promise(resolve => setTimeout(resolve, amount))
+export const defaultPosition = 'bottom-center'
+export const defaultDuration = 5000
 
 // Context used by the custom hook useSnackbar()
 const SnackbarContext = createContext(null)
@@ -14,39 +14,35 @@ export default function Snackbar({ children }) {
   // Current timeout ID
   const [timeoutId, setTimeoutId] = useState(null)
   // Snackbar's text
-  const [text, setText] = useState(null)
+  const [text, setText] = useState('')
+  // Snackbar's duration
+  const [duration, setDuration] = useState(defaultDuration)
   // Snackbar's position
-  const [position, setPosition] = useState('bottom-center')
+  const [position, setPosition] = useState(defaultPosition)
   // Custom styles for the snackbar itself
   const [customStyles, setCustomStyles] = useState({})
   // Custom styles for the close button
   const [closeCustomStyles, setCloseCustomStyles] = useState({})
 
-  const triggerSnackbar = (text, position, style, closeStyle, duration) => {
+  const triggerSnackbar = (text, duration, position, style, closeStyle) => {
     setText(text)
+    setDuration(duration)
     setPosition(position)
     setCustomStyles(style)
     setCloseCustomStyles(closeStyle)
     setOpen(true)
-    clearTimeout(timeoutId)
-    setTimeoutId(
-      setTimeout(() => {
-        setOpen(false)
-      }, duration)
-    )
   }
 
   // Manages all the snackbar's opening process
-  const openSnackbar = (text, position, style, closeStyle, duration) => {
+  const openSnackbar = (text, duration, position, style, closeStyle) => {
     // Closes the snackbar if it is already open
     if (open === true) {
       setOpen(false)
       setTimeout(() => {
-        triggerSnackbar(text, position, style, closeStyle, duration)
+        triggerSnackbar(text, duration, position, style, closeStyle)
       }, 250)
-      // return
     } else {
-      triggerSnackbar(text, position, style, closeStyle, duration)
+      triggerSnackbar(text, duration, position, style, closeStyle)
     }
   }
 
@@ -66,6 +62,11 @@ export default function Snackbar({ children }) {
         timeout={150}
         mountOnEnter
         unmountOnExit
+        // Sets timeout to close the snackbar
+        onEnter={() => {
+          clearTimeout(timeoutId)
+          setTimeoutId(setTimeout(() => setOpen(false), duration))
+        }}
         // Sets custom classNames based on "position"
         className={`${styles['snackbar-wrapper']} ${
           styles[`snackbar-wrapper-${position}`]
@@ -113,7 +114,7 @@ const CloseIcon = () => (
 )
 
 // Possible snackbar's position
-export const positions = [
+const positions = [
   'top-left',
   'top-center',
   'top-right',
@@ -121,9 +122,6 @@ export const positions = [
   'bottom-center',
   'bottom-right',
 ]
-
-export const defaultPosition = 'bottom-center'
-export const defaultDuration = 5000
 
 // Custom hook that manages snackbar's context
 // Receives snackbar's properties and wraps the openSnackbar method
@@ -140,8 +138,7 @@ export const useSnackbar = ({
   }
 
   const open = (text = '', duration = defaultDuration) => {
-    // console.log(duration)
-    openSnackbar(text, position, style, closeStyle, duration)
+    openSnackbar(text, duration, position, style, closeStyle)
   }
 
   // Returns methods in hooks array way
