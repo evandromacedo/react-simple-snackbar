@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel index.html",
+    "start": "parcel index.html --no-cache",
     "build": "rm -rf dist && parcel build index.html --public-url /react-simple-snackbar"
   },
   "keywords": [],
@@ -15,6 +15,11 @@
     "react-simple-snackbar": "file:.."
   },
   "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "@mdx-js/parcel-plugin-mdx": "^1.5.1",
+    "@mdx-js/react": "^1.0.0-rc.5",
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
