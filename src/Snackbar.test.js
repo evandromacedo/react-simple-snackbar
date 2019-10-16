@@ -1,7 +1,7 @@
 import React from 'react'
 import { act } from 'react-dom/test-utils'
 import SnackbarProvider, { useSnackbar } from '.'
-import { defaultDuration, defaultPosition } from './Snackbar'
+import { wait, defaultDuration, defaultPosition } from './Snackbar'
 import { shallow, mount } from 'enzyme'
 
 const ComponentMock = ({
@@ -197,6 +197,40 @@ describe('<Snackbar />', () => {
     })
 
     // "in" prop has to be false
+    Transition = wrapper.find('Transition')
+    expect(Transition.props().in).toBe(false)
+  })
+
+  it('should remove the current snackbar and apply a new one when open() is called again before duration ends', () => {
+    const wrapper = mountWithProvider(<ComponentMock />)
+
+    // Simulates open()
+    const Component = wrapper.find(ComponentMock)
+    const OpenButton = Component.find('[data-test="open"]')
+
+    OpenButton.simulate('click')
+
+    let Transition = wrapper.find('Transition')
+    expect(Transition.props().in).toBe(true)
+
+    OpenButton.simulate('click')
+
+    Transition = wrapper.find('Transition')
+    expect(Transition.props().in).toBe(false)
+
+    act(() => {
+      jest.advanceTimersByTime(250)
+      wrapper.update()
+    })
+
+    Transition = wrapper.find('Transition')
+    expect(Transition.props().in).toBe(true)
+
+    act(() => {
+      jest.advanceTimersByTime(5000)
+      wrapper.update()
+    })
+
     Transition = wrapper.find('Transition')
     expect(Transition.props().in).toBe(false)
   })

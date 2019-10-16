@@ -3,7 +3,7 @@ import { CSSTransition } from 'react-transition-group'
 import styles from './Snackbar.css'
 
 // Based on 'waait' package from Wes Bos
-const wait = (amount = 0) => new Promise(resolve => setTimeout(resolve, amount))
+export const wait = (amount = 0) => new Promise(resolve => setTimeout(resolve, amount))
 
 // Context used by the custom hook useSnackbar()
 const SnackbarContext = createContext(null)
@@ -22,15 +22,7 @@ export default function Snackbar({ children }) {
   // Custom styles for the close button
   const [closeCustomStyles, setCloseCustomStyles] = useState({})
 
-  // Manages all the snackbar's opening process
-  const openSnackbar = async (text, position, style, closeStyle, duration) => {
-    // Closes the snackbar if it is already open
-    if (open === true) {
-      setOpen(false)
-      await wait(250)
-    }
-
-    // Sets snackbar's properties, clears the timeout and sets a new one
+  const triggerSnackbar = (text, position, style, closeStyle, duration) => {
     setText(text)
     setPosition(position)
     setCustomStyles(style)
@@ -42,6 +34,20 @@ export default function Snackbar({ children }) {
         setOpen(false)
       }, duration)
     )
+  }
+
+  // Manages all the snackbar's opening process
+  const openSnackbar = (text, position, style, closeStyle, duration) => {
+    // Closes the snackbar if it is already open
+    if (open === true) {
+      setOpen(false)
+      setTimeout(() => {
+        triggerSnackbar(text, position, style, closeStyle, duration)
+      }, 250)
+      // return
+    } else {
+      triggerSnackbar(text, position, style, closeStyle, duration)
+    }
   }
 
   // Closes the snackbar just by setting the "open" state to false
@@ -134,6 +140,7 @@ export const useSnackbar = ({
   }
 
   const open = (text = '', duration = defaultDuration) => {
+    // console.log(duration)
     openSnackbar(text, position, style, closeStyle, duration)
   }
 
