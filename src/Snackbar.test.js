@@ -1,5 +1,6 @@
 import React from 'react'
 import { act } from 'react-dom/test-utils'
+import { renderHook } from '@testing-library/react-hooks'
 import SnackbarProvider, { useSnackbar } from '.'
 import { defaultDuration, defaultPosition } from './Snackbar'
 import { shallow, mount } from 'enzyme'
@@ -31,6 +32,14 @@ describe('<Snackbar />', () => {
   // Reset fake timers on each test
   beforeEach(() => {
     jest.useFakeTimers()
+  })
+
+  it('shoud return 2 functions in array on useSnackbar()', () => {
+    const wrapper = ({ children }) => <SnackbarProvider>{children}</SnackbarProvider>
+    const { result } = renderHook(() => useSnackbar(), { wrapper })
+    const [open, close] = result.current
+    expect(open).toBeInstanceOf(Function)
+    expect(close).toBeInstanceOf(Function)
   })
 
   it('should render properly', () => {
