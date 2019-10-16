@@ -12,6 +12,8 @@
   "author": "Evandro Macedo <evandro.hcm@gmail.com> (https://github.com/evandromacedo)",
   "license": "MIT",
   "dependencies": {
+    "@mdx-js/react": "^1.5.1",
+    "prism-react-renderer": "^1.0.1",
     "react-simple-snackbar": "file:.."
   },
   "devDependencies": {
@@ -19,10 +21,6 @@
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "^7.6.3",
     "@mdx-js/parcel-plugin-mdx": "^1.5.1",
-    "@mdx-js/react": "^1.0.0-rc.5",
-    "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
     "parcel-bundler": "^1.12.4"
   },
   "alias": {

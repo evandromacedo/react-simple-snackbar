@@ -3,11 +3,19 @@ import { render } from 'react-dom'
 import { MDXProvider } from '@mdx-js/react'
 import SnackbarProvider from 'react-simple-snackbar'
 import Content from './content.mdx'
+import CodeBlock from './CodeBlock'
+
+const components = {
+  pre: props => <div {...props} />,
+  code: CodeBlock,
+}
 
 render(
-  <SnackbarProvider>
-    <Content />
-  </SnackbarProvider>,
+  <MDXProvider components={components}>
+    <SnackbarProvider>
+      <Content />
+    </SnackbarProvider>
+  </MDXProvider>,
   document.querySelector('#root')
 )
 
