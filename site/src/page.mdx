@@ -1,49 +1,53 @@
-import Header from './components/Header/Header'
 import Teste from './components/Teste/Teste'
 
-<Header />
+<h1 id="getting-started">Getting Started</h1>
 
-# Heading 1
-
-## Heading 2
-
-Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis aut eligendi repudiandae esse est nemo iste, optio accusamus, distinctio ut quia mollitia ducimus quae sint dolore, dolores cupiditate rem similique.
-
-Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis aut eligendi repudiandae esse est nemo iste, optio accusamus, distinctio ut quia mollitia ducimus quae sint dolore, dolores cupiditate rem similique.
-
-[![Build Status](https://travis-ci.org/evandromacedo/react-simple-snackbar.svg?branch=master)](https://travis-ci.org/evandromacedo/react-simple-snackbar)
-[![Coverage Status](https://coveralls.io/repos/github/evandromacedo/react-simple-snackbar/badge.svg?branch=master)](https://coveralls.io/github/evandromacedo/react-simple-snackbar?branch=master)
-[![MIT License](https://img.shields.io/npm/l/@testing-library/react-hooks.svg)](https://github.com/evandromacedo/react-simple-snackbar/blob/master/LICENSE.md)
-
-[liiiiiiiiiiink](#link)
-
-<Teste />
-
-<h1 id="link">Some header</h1>
-
-```jsx
-import React from 'react'
-import { render } from 'react-dom'
-import { MDXProvider } from '@mdx-js/react'
-import SnackbarProvider from 'react-simple-snackbar'
-import Content from './content.mdx'
-import CodeBlock from './CodeBlock'
-
-const components = {
-  pre: props => <div {...props} />,
-  code: CodeBlock,
-}
-
-render(
-  <MDXProvider components={components}>
-    <SnackbarProvider>
-      <Content />
-    </SnackbarProvider>
-  </MDXProvider>,
-  document.querySelector('#root')
-)
-```
+## Installation
 
 ```??? noLines
 npm install --save react-simple-snackbar
 ```
+
+## Basic Usage
+
+First, you need to wrap your application into a `SnackbarProvider`:
+
+```jsx
+// App.js
+import React from 'react'
+import { render } from 'react-dom'
+import SnackbarProvider from 'react-simple-snackbar'
+import Content from './Content'
+
+const App = () => (
+  <SnackbarProvider>
+    <Content />
+  </SnackbarProvider>
+)
+
+render(<App />, document.querySelector('#root'))
+```
+
+Then you can use the `useSnackbar()` hook in any child component:
+
+```jsx
+// Content.js
+import React from 'react'
+import { useSnackbar } from 'react-simple-snackbar'
+
+export default function Content() {
+  const [open] = useSnackbar()
+
+  return (
+    <button onClick={() => open('This is an example of a simple Snackbar.')}>
+      Click me to open the Snackbar!
+    </button>
+  )
+}
+```
+
+Run this example: <Teste />
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa illo, repellendus rerum eum accusamus beatae totam itaque excepturi fuga, dicta enim dolore cupiditate quae corporis consectetur, delectus molestias repudiandae deserunt.
+
+<h1 id="documentation">Documentation</h1>

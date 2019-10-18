@@ -55,10 +55,10 @@ export default function() {
       <nav>
         <ul className="header__nav__list">
           <li>
-            <a href="/">Getting Started</a>
+            <a href="#getting-started">Getting Started</a>
           </li>
           <li>
-            <a href="/">Documentation</a>
+            <a href="#documentation">Documentation</a>
           </li>
         </ul>
       </nav>
