@@ -2,8 +2,8 @@ import React from 'react'
 import { render } from 'react-dom'
 import { MDXProvider } from '@mdx-js/react'
 import SnackbarProvider from 'react-simple-snackbar'
-import Content from './content.mdx'
-import CodeBlock from './CodeBlock'
+import Page from './page.mdx'
+import CodeBlock from './components/CodeBlock/CodeBlock'
 
 const components = {
   pre: props => <div {...props} />,
@@ -13,7 +13,7 @@ const components = {
 render(
   <MDXProvider components={components}>
     <SnackbarProvider>
-      <Content />
+      <Page />
     </SnackbarProvider>
   </MDXProvider>,
   document.querySelector('#root')

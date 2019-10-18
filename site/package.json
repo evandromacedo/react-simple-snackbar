@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel index.html --no-cache",
-    "build": "rm -rf dist && parcel build index.html --public-url /react-simple-snackbar"
+    "start": "parcel src/index.html --no-cache",
+    "build": "rm -rf dist && parcel build src/index.html --public-url /react-simple-snackbar"
   },
   "keywords": [],
   "author": "Evandro Macedo <evandro.hcm@gmail.com> (https://github.com/evandromacedo)",
