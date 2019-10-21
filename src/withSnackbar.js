@@ -1,6 +1,7 @@
 import React from 'react'
 import { SnackbarContext, defaultDuration, defaultPosition, positions } from './Snackbar'
 
+// High order Component to trigger the snackbar on class components
 export function withSnackbar(
   WrappedComponent,
   { position = defaultPosition, style = {}, closeStyle = {} } = {}

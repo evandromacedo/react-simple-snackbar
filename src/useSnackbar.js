@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import { SnackbarContext, defaultDuration, defaultPosition, positions } from './Snackbar'
 
+// Custom hook to trigger the snackbar on function components
 export const useSnackbar = ({
   position = defaultPosition,
   style = {},
