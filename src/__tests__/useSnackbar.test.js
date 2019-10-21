@@ -1,9 +1,9 @@
 import React from 'react'
 import { act } from 'react-dom/test-utils'
 import { renderHook } from '@testing-library/react-hooks'
-import SnackbarProvider, { useSnackbar } from '.'
-import { defaultPosition, defaultDuration, defaultInterval } from './Snackbar'
-import { shallow, mount } from 'enzyme'
+import SnackbarProvider, { useSnackbar } from '..'
+import { defaultPosition, defaultDuration, defaultInterval } from '../Snackbar'
+import { mount } from 'enzyme'
 
 const ComponentMock = ({
   text = '',
@@ -28,7 +28,7 @@ const mountWithProvider = component => {
   return mount(<SnackbarProvider>{component}</SnackbarProvider>)
 }
 
-describe('<Snackbar />', () => {
+describe('useSnackbar()', () => {
   // Reset fake timers on each test
   beforeEach(() => {
     jest.useFakeTimers()
@@ -41,10 +41,6 @@ describe('<Snackbar />', () => {
     const [open, close] = result.current
     expect(open).toBeInstanceOf(Function)
     expect(close).toBeInstanceOf(Function)
-  })
-
-  it('should render properly', () => {
-    shallow(<SnackbarProvider />)
   })
 
   it('should render with default values when nothing is passed to neither useSnackbar() nor open()', () => {
