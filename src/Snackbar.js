@@ -7,7 +7,7 @@ export const defaultDuration = 5000
 export const defaultInterval = 250
 
 // Context used by the custom hook useSnackbar()
-const SnackbarContext = createContext(null)
+export const SnackbarContext = createContext(null)
 
 export default function Snackbar({ children }) {
   // Current open state
@@ -115,7 +115,7 @@ const CloseIcon = () => (
 )
 
 // Possible snackbar's position
-const positions = [
+export const positions = [
   'top-left',
   'top-center',
   'top-right',
