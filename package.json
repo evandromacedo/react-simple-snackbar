@@ -42,11 +42,13 @@
   "homepage": "https://github.com/evandromacedo/react-simple-snackbar#readme",
   "devDependencies": {
     "@babel/core": "^7.6.2",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/plugin-transform-runtime": "^7.6.2",
     "@babel/preset-env": "^7.6.2",
     "@babel/preset-react": "^7.0.0",
     "@testing-library/react-hooks": "^2.0.3",
     "autoprefixer": "^9.6.4",
+    "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
     "coveralls": "^3.0.7",
     "enzyme": "^3.10.0",
