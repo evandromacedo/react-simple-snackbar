@@ -4,9 +4,10 @@
   justify-content: center;
   grid-gap: 4.8rem;
   padding: 6.4rem 2.4rem 2.4rem 2.4rem;
-  background-color: #001b05;
-  background-image: linear-gradient(to bottom right, #00b3f1, #2e62b7, #540055);
+  background-color: #010807;
+  background-image: linear-gradient(to bottom right, #637370, #010807);
   position: relative;
+  box-shadow: 0 0 4px #010807;
 }
 
 /* Header GitHub Icon */
