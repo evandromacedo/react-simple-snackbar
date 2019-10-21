@@ -2,9 +2,18 @@ import React, { createContext, useContext, useState } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import styles from './Snackbar.css'
 
+// Snackbar default values
 export const defaultPosition = 'bottom-center'
 export const defaultDuration = 5000
 export const defaultInterval = 250
+export const positions = [
+  'top-left',
+  'top-center',
+  'top-right',
+  'bottom-left',
+  'bottom-center',
+  'bottom-right',
+]
 
 // Context used by the custom hook useSnackbar()
 export const SnackbarContext = createContext(null)
@@ -113,35 +122,3 @@ const CloseIcon = () => (
     />
   </svg>
 )
-
-// Possible snackbar's position
-export const positions = [
-  'top-left',
-  'top-center',
-  'top-right',
-  'bottom-left',
-  'bottom-center',
-  'bottom-right',
-]
-
-// Custom hook that manages snackbar's context
-// Receives snackbar's properties and wraps the openSnackbar method
-export const useSnackbar = ({
-  position = defaultPosition,
-  style = {},
-  closeStyle = {},
-} = {}) => {
-  const { openSnackbar, closeSnackbar } = useContext(SnackbarContext)
-
-  // If no correct position is passed, 'bottom-center' is set
-  if (!positions.includes(position)) {
-    position = defaultPosition
-  }
-
-  function open(text = '', duration = defaultDuration) {
-    openSnackbar(text, duration, position, style, closeStyle)
-  }
-
-  // Returns methods in hooks array way
-  return [open, closeSnackbar]
-}
