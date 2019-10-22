@@ -172,6 +172,14 @@ useSnackbar(options)
 withSnackbar(Component, options)
 ```
 
+## Contributing
+
+See [CONTRIBUTING.md](https://github.com/evandromacedo/react-simple-snackbar/blob/master/CONTRIBUTING.md) for more information on how to get started.
+
+## License
+
+React Simple Snackbar is open source software [licensed as MIT](https://github.com/evandromacedo/react-simple-snackbar/blob/master/LICENSE.md).
+
 <!-- _Add size, gzipped size, and npm version afterwards. Use [these](https://github.com/ngryman/badge-size) for size._
 
 It's meant to be a REALLY simple Snackbar. -->
