@@ -26,14 +26,17 @@
   "keywords": [
     "react-simple-snackbar",
     "react",
-    "hooks",
     "simple",
     "snackbar",
+    "component",
+    "hooks",
+    "hoc",
+    "high-order-component",
     "alert",
+    "notification",
     "message",
     "toast",
-    "javascript",
-    "component"
+    "javascript"
   ],
   "author": "Evandro Macedo <evandro.hcm@gmail.com> (https://github.com/evandromacedo)",
   "license": "MIT",
