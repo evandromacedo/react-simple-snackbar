@@ -12,6 +12,9 @@ export const LineNumber = {
   marginLeft: '-16px',
 }
 
+const emptyLine = `
+`
+
 export default ({ children, className, noLines }) => {
   const language = className.replace(/language-/, '')
   const code = children.trim()
@@ -23,9 +26,12 @@ export default ({ children, className, noLines }) => {
           {tokens.map((line, i) => (
             <div key={i} {...getLineProps({ line, key: i })}>
               {!noLines && <span style={LineNumber}>{i + 1}</span>}
-              {line.map((token, key) => (
-                <span key={key} {...getTokenProps({ token, key })} />
-              ))}
+              {line.map((token, key) => {
+                if (token.empty) {
+                  token.content = emptyLine
+                }
+                return <span key={key} {...getTokenProps({ token, key })} />
+              })}
             </div>
           ))}
         </pre>
