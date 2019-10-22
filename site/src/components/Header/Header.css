@@ -76,6 +76,8 @@
   line-height: 4.9rem;
   text-align: center;
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.48);
+  padding: 0;
+  border-bottom: none;
 }
 
 /* Header Badges */
@@ -89,6 +91,8 @@
 
 /* Header Nav */
 .header__nav__list {
+  list-style: none;
+  padding: 0;
   display: grid;
   grid-gap: 2.4rem;
   justify-items: center;

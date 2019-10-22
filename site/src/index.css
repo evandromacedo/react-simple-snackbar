@@ -101,10 +101,10 @@ body {
   line-height: 1;
 }
 
-ol,
+/* ol,
 ul {
   list-style: none;
-}
+} */
 
 a {
   color: inherit;
@@ -168,6 +168,8 @@ h1 {
   font-size: 3.6rem;
   font-weight: bold;
   line-height: 4.9rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid #eaecef;
 }
 
 h2 {
@@ -184,7 +186,15 @@ h3 {
 
 p {
   font-size: 1.6rem;
-  line-height: 2.2rem;
+  line-height: 2.4rem;
+}
+
+a {
+  color: cornflowerblue;
+}
+
+ul {
+  padding-left: 2em;
 }
 
 pre {
