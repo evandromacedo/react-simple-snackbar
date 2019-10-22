@@ -190,7 +190,7 @@ withSnackbar(Component, options)
 
 ## Contributing
 
-See [CONTRIBUTING.md](https://github.com/evandromacedo/react-simple-snackbar/blob/master/CONTRIBUTING.md) for more information on how to get started.
+See [CONTRIBUTING](https://github.com/evandromacedo/react-simple-snackbar/blob/master/CONTRIBUTING.md) for more information on how to get started.
 
 ## License
 
