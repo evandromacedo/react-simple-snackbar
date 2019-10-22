@@ -21,8 +21,18 @@ export default function() {
           <ReactIcon />
         </div>
       </a>
-      <h1 className="header__title">It’s meant to be a REALLY simple Snackbar!</h1>
+      <h1 className="header__title">It's meant to be a REALLY simple Snackbar!</h1>
       <div className="header__badges">
+        <a
+          href="https://www.npmjs.com/package/react-simple-snackbar"
+          title="NPM Version"
+          target="blank"
+        >
+          <img
+            src="https://img.shields.io/npm/v/react-simple-snackbar"
+            alt="NPM Version"
+          />
+        </a>
         <a
           href="https://travis-ci.org/evandromacedo/react-simple-snackbar"
           title="Build Status"
@@ -41,6 +51,12 @@ export default function() {
           <img
             src="https://coveralls.io/repos/github/evandromacedo/react-simple-snackbar/badge.svg?branch=master"
             alt="Coverage Status"
+          />
+        </a>
+        <a href="#" title="Gzipped size">
+          <img
+            src="https://img.badgesize.io/evandromacedo/react-simple-snackbar/master/dist/index.js.svg?compression=gzip"
+            alt="Gzipped size"
           />
         </a>
         <a href="https://standardjs.com" title="JavaScript Style Guide" target="blank">
