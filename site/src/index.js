@@ -4,6 +4,7 @@ import { MDXProvider } from '@mdx-js/react'
 import SnackbarProvider from 'react-simple-snackbar'
 import CodeBlock from './components/CodeBlock/CodeBlock'
 import Header from './components/Header/Header'
+import Footer from './components/Footer/Footer'
 import Page from './page.mdx'
 
 const components = {
@@ -15,9 +16,10 @@ render(
   <MDXProvider components={components}>
     <SnackbarProvider>
       <Header />
-      <div className="container">
+      <main className="container">
         <Page />
-      </div>
+      </main>
+      <Footer />
     </SnackbarProvider>
   </MDXProvider>,
   document.querySelector('#root')

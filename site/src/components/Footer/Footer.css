@@ -1,0 +1,24 @@
+/* Footer */
+.footer {
+  background-color: #001b05;
+  background-image: linear-gradient(to bottom right, #223a51, #001b05);
+  color: #fff;
+}
+
+.footer-container {
+  margin: 0 auto;
+  padding: 0 2.4rem;
+  max-width: 792px;
+
+  display: grid;
+  grid-gap: 2.4rem;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-container a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: underline;
+}
