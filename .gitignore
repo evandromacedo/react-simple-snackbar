@@ -4,5 +4,7 @@
 .DS_Store
 npm-debug.log*
 
-# Just for now
-/dist
+# Let the index.js to get the size badge
+/dist/index.es.js
+/dist/index.es.js.map
+/dist/index.js.map

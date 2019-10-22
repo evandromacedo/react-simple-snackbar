@@ -23,6 +23,12 @@
       alt="Coverage Status"
     />
   </a>
+  <a href="#" title="Gzipped size">
+    <img
+      src="https://img.badgesize.io/evandromacedo/react-simple-snackbar/master/dist/index.js.svg?compression=gzip"
+      alt="Gzipped size"
+    />
+  </a>
   <a href="https://standardjs.com" title="JavaScript Style Guide" target="blank">
     <img
       src="https://img.shields.io/badge/code_style-standard-brightgreen.svg"
