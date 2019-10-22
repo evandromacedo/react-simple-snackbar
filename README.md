@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a
+  <!-- <a
     href="https://www.npmjs.com/package/react-simple-snackbar"
     title="NPM Version"
     target="blank"
@@ -12,7 +12,7 @@
       src="https://img.shields.io/npm/v/react-simple-snackbar"
       alt="NPM Version"
     />
-  </a>
+  </a> -->
   <a
     href="https://travis-ci.org/evandromacedo/react-simple-snackbar"
     title="Build Status"
@@ -45,7 +45,7 @@
       alt="JavaScript Style Guide"
     />
   </a>
-  <a
+  <!-- <a
     href="https://github.com/evandromacedo/react-simple-snackbar/blob/master/LICENSE.md"
     title="MIT License"
     target="blank"
@@ -54,7 +54,7 @@
       src="https://img.shields.io/npm/l/@testing-library/react-hooks.svg"
       alt="MIT License"
     />
-  </a>
+  </a> -->
 </p>
 
 You can check a quick demo [here](http://evandromacedo.com/react-simple-snackbar/#demo).
