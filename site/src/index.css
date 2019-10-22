@@ -153,7 +153,7 @@ video {
 html {
   font-family: 'Open Sans', sans-serif;
   font-size: 10px;
-  color: #333;
+  color: rgba(0, 0, 0, 0.72);
   scroll-behavior: smooth;
 }
 
@@ -176,15 +176,21 @@ h2 {
   line-height: 3.3rem;
 }
 
+h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 2.7rem;
+}
+
 p {
   font-size: 1.6rem;
   line-height: 2.2rem;
 }
 
 pre {
-  font-size: 14px;
-  line-height: 20px;
-  padding: 16px 16px 16px 16px;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  padding: 1.6rem;
   font-family: Menlo, monospace;
   overflow-x: auto;
   border-radius: 4px;
