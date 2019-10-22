@@ -1,8 +1,9 @@
 {
   "name": "react-simple-snackbar",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A really simple React snackbar component",
-  "main": "dist/index.js",
+  "main": "dist/index",
+  "types": "dist/index",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
   "files": [
