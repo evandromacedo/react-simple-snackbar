@@ -1,6 +1,6 @@
 {
   "name": "react-simple-snackbar",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A really simple React snackbar component",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -39,7 +39,7 @@
   "bugs": {
     "url": "https://github.com/evandromacedo/react-simple-snackbar/issues"
   },
-  "homepage": "https://github.com/evandromacedo/react-simple-snackbar#readme",
+  "homepage": "http://evandromacedo.com/react-simple-snackbar",
   "devDependencies": {
     "@babel/core": "^7.6.2",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
