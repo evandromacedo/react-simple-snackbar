@@ -41,7 +41,7 @@
   </a>
 </p>
 
-To see a quick demo you can check on the site.
+You can check a quick demo [here](https://link).
 
 ## Getting Started
 
@@ -122,6 +122,54 @@ class Example extends React.Component {
 }
 
 export default withSnackbar(Example)
+```
+
+## API
+
+### Methods
+
+#### `open(node [, duration])`
+
+- **`node`**: the node you want to show into the Snackbar. It can be just `"Some string like showed on Basic Usage"`, or `<p>Some element you would <strong>like</strong> to show</p>`.
+
+- **`duration`**: a number in milliseconds to set the duration of the Snackbar. The default value is `5000`.
+
+#### `close()`
+
+- This method is used if you want to close the Snackbar programmatically. It doesn't receive any params.
+
+### Options
+
+You can pass an options object to customize your Snackbar. This object can be passed either in `useSnackbar([options])` or as second argument of `withSnackbar(Component [, options])`. It accepts three options:
+
+- **`position`**: a custom position for your Snackbar. The default value is `bottom-center`, and the possible values are `top-left`, `top-center`, `top-right`, `bottom-left`, `bottom-center` and `bottom-right`.
+
+- **`style`**: a [style object](https://reactjs.org/docs/dom-elements.html#style) with `camelCased` properties and string values. These styles are applied to the Snackbar itself.
+
+- **`closeStyle`**: same as above, but the styles are applied to the close button. You can use font properties to style the `X` icon.
+
+For example:
+
+```jsx noLines
+const options = {
+  position: 'bottom-right',
+  style: {
+    backgroundColor: 'midnightblue',
+    border: '2px solid lightgreen',
+    color: 'lightblue',
+    fontFamily: 'Menlo, monospace',
+    fontSize: '20px',
+    textAlign: 'center',
+  },
+  closeStyle: {
+    color: 'lightcoral',
+    fontSize: '16px',
+  },
+}
+
+useSnackbar(options)
+// or
+withSnackbar(Component, options)
 ```
 
 <!-- _Add size, gzipped size, and npm version afterwards. Use [these](https://github.com/ngryman/badge-size) for size._
