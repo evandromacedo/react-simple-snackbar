@@ -41,6 +41,12 @@ export default function() {
             alt="Coverage Status"
           />
         </a>
+        <a href="https://standardjs.com" title="JavaScript Style Guide" target="blank">
+          <img
+            src="https://img.shields.io/badge/code_style-standard-brightgreen.svg"
+            alt="JavaScript Style Guide"
+          />
+        </a>
         <a
           href="https://github.com/evandromacedo/react-simple-snackbar/blob/master/LICENSE.md"
           title="MIT License"
