@@ -207,7 +207,8 @@ code {
 
 .container {
   margin: 0 auto;
-  max-width: 768px;
+  padding: 0 2.4rem;
+  max-width: 792px;
 }
 
 .title {
