@@ -95,16 +95,16 @@ export default function Snackbar({ children }) {
         <div>
           <div className={styles.snackbar} style={customStyles}>
             {/* Snackbar's text */}
-            <p className={styles.snackbar__text}>{text}</p>
+            <div className={styles.snackbar__text}>{text}</div>
 
             {/* Snackbar's close button */}
-            <div
+            <button
               onClick={closeSnackbar}
               className={styles.snackbar__close}
               style={closeCustomStyles}
             >
               <CloseIcon />
-            </div>
+            </button>
           </div>
         </div>
       </CSSTransition>

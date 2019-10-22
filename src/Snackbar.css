@@ -75,18 +75,23 @@
 .snackbar__close {
   flex-shrink: 0;
   box-sizing: border-box;
-  display: grid;
+  display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   width: 36px;
   height: 36px;
   padding: 8px;
-  margin-right: 8px;
+  margin: 0 8px 0 0;
   cursor: pointer;
   position: relative;
   pointer-events: auto;
   -webkit-tap-highlight-color: transparent;
+
+  /* Reset button styles */
+  outline: none;
+  background-color: transparent;
+  border: none;
 
   /* SVG icon properties */
   font-size: 12px;
