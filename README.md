@@ -183,8 +183,9 @@ const options = {
   },
 }
 
+// Usage with hooks
 useSnackbar(options)
-// or
+// Usage with HoC
 withSnackbar(Component, options)
 ```
 
