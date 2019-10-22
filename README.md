@@ -4,6 +4,16 @@
 
 <p align="center">
   <a
+    href="https://www.npmjs.com/package/react-simple-snackbar"
+    title="NPM Version"
+    target="blank"
+  >
+    <img
+      src="https://img.shields.io/npm/v/react-simple-snackbar"
+      alt="NPM Version"
+    />
+  </a>
+  <a
     href="https://travis-ci.org/evandromacedo/react-simple-snackbar"
     title="Build Status"
     target="blank"
@@ -185,7 +195,3 @@ See [CONTRIBUTING.md](https://github.com/evandromacedo/react-simple-snackbar/blo
 ## License
 
 React Simple Snackbar is open source software [licensed as MIT](https://github.com/evandromacedo/react-simple-snackbar/blob/master/LICENSE.md).
-
-<!-- _Add size, gzipped size, and npm version afterwards. Use [these](https://github.com/ngryman/badge-size) for size._
-
-It's meant to be a REALLY simple Snackbar. -->
