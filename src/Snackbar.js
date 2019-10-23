@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react'
+import React, { createContext, useState } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import styles from './Snackbar.css'
 
@@ -15,7 +15,7 @@ export const positions = [
   'bottom-right',
 ]
 
-// Context used by the custom hook useSnackbar()
+// Context used by the hook useSnackbar() and HoC withSnackbar()
 export const SnackbarContext = createContext(null)
 
 export default function Snackbar({ children }) {
