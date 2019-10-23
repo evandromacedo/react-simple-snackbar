@@ -81,23 +81,24 @@ First, you need to wrap your application into a `SnackbarProvider`:
 // App.js
 import React from 'react'
 import SnackbarProvider from 'react-simple-snackbar'
-import Example from './Example'
+import SomeChildComponent from './SomeChildComponent'
 
 export default function App() {
   return (
     <SnackbarProvider>
-      <Example />
+      <SomeChildComponent />
     </SnackbarProvider>
   )
 }
 ```
 
-Then you can use both options:
+Then you can use both options on any descendant component:
 
 #### 1. `useSnackbar()` hook on function components
 
+<!-- prettier-ignore -->
 ```jsx
-// Example.js
+// SomeChildComponent.js
 import React from 'react'
 import { useSnackbar } from 'react-simple-snackbar'
 
@@ -106,10 +107,12 @@ export default function Example() {
 
   return (
     <div>
-      <button onClick={() => open('This is an example of a simple Snackbar.')}>
+      <button onClick={() => open('This is the content of the Snackbar.')}>
         Click me to open the Snackbar!
       </button>
-      <button onClick={close}>Click me to close the Snackbar programmatically.</button>
+      <button onClick={close}>
+        Click me to close the Snackbar programmatically.
+      </button>
     </div>
   )
 }
@@ -117,8 +120,9 @@ export default function Example() {
 
 #### 2. `withSnackbar()` HoC on class components
 
+<!-- prettier-ignore -->
 ```jsx
-// Example.js
+// SomeChildComponent.js
 import React from 'react'
 import { withSnackbar } from 'react-simple-snackbar'
 
@@ -128,10 +132,12 @@ class Example extends React.Component {
 
     return (
       <div>
-        <button onClick={() => open('This is an example of a simple Snackbar.')}>
+        <button onClick={() => open('This is the content of the Snackbar.')}>
           Click me to open the Snackbar!
         </button>
-        <button onClick={close}>Click me to close the Snackbar programmatically.</button>
+        <button onClick={close}>
+          Click me to close the Snackbar programmatically.
+        </button>
       </div>
     )
   }
