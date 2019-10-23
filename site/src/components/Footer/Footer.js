@@ -10,13 +10,6 @@ export default function Footer() {
           Created by{' '}
           <a href="https://github.com/evandromacedo" target="blank">
             Evandro Macedo
-          </a>{' '}
-          under the{' '}
-          <a
-            href="https://github.com/evandromacedo/react-simple-snackbar/blob/master/LICENSE.md"
-            target="blank"
-          >
-            MIT License
           </a>
           .
         </p>
