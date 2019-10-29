@@ -35,7 +35,7 @@ describe('useSnackbar()', () => {
   })
 
   it('shoud return 2 functions in array on useSnackbar()', () => {
-    // Necessary wrap the hook in teh context
+    // Necessary wrap the hook in the context
     const wrapper = ({ children }) => <SnackbarProvider>{children}</SnackbarProvider>
     const { result } = renderHook(() => useSnackbar(), { wrapper })
     const [open, close] = result.current
