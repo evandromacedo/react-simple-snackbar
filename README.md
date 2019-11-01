@@ -103,14 +103,14 @@ import React from 'react'
 import { useSnackbar } from 'react-simple-snackbar'
 
 export default function SomeChildComponent() {
-  const [open, close] = useSnackbar()
+  const [openSnackbar, closeSnackbar] = useSnackbar()
 
   return (
     <div>
-      <button onClick={() => open('This is the content of the Snackbar.')}>
+      <button onClick={() => openSnackbar('This is the content of the Snackbar.')}>
         Click me to open the Snackbar!
       </button>
-      <button onClick={close}>
+      <button onClick={closeSnackbar}>
         Click me to close the Snackbar programmatically.
       </button>
     </div>
@@ -128,14 +128,14 @@ import { withSnackbar } from 'react-simple-snackbar'
 
 class SomeChildComponent extends React.Component {
   render() {
-    const { open, close } = this.props
+    const { openSnackbar, closeSnackbar } = this.props
 
     return (
       <div>
-        <button onClick={() => open('This is the content of the Snackbar.')}>
+        <button onClick={() => openSnackbar('This is the content of the Snackbar.')}>
           Click me to open the Snackbar!
         </button>
-        <button onClick={close}>
+        <button onClick={closeSnackbar}>
           Click me to close the Snackbar programmatically.
         </button>
       </div>
@@ -150,13 +150,28 @@ export default withSnackbar(SomeChildComponent)
 
 ### Methods
 
-#### `open(node [, duration])`
+These methods are are returned from `useSnackbar()` hook in array destructuring syntax:
+
+```js noLines
+const [openSnackbar, closeSnackbar] = useSnackbar()
+
+// You can also give different names as you wish
+const [open, close] = useSnackbar()
+```
+
+Or added as additional props on components wrapped in `withSnackbar()`:
+
+```js noLines
+const { openSnackbar, closeSnackbar } = this.props
+```
+
+#### `openSnackbar(node [, duration])`
 
 - **`node`**: the node you want to show into the Snackbar. It can be just `"Some string like showed on Basic Usage"`, or `<p>Some element you would <strong>like</strong> to show</p>`.
 
 - **`duration`**: a number in milliseconds to set the duration of the Snackbar. The default value is `5000`.
 
-#### `close()`
+#### `closeSnackbar()`
 
 - This method is used if you want to close the Snackbar programmatically. It doesn't receive any params.
 
@@ -249,7 +264,7 @@ export { Component }
 export default withSnackbar(Component)
 ```
 
-So you can get the component as a named import, then mock the `open` and `close` functions as common props if you want:
+So you can get the component as a named import, then mock the `openSnackbar` and `closeSnackbar` functions as common props if you want:
 
 ```jsx
 // Component.test.js
@@ -261,7 +276,7 @@ it('can test the openSnackbar and closeSnackbar functions', () => {
   const openSnackbarMock = jest.fn()
   const closeSnackbarMock = jest.fn()
   const wrapper = shallow(
-    <ComponentMock open={openSnackbarMock} close={closeSnackbarMock} />
+    <ComponentMock openSnackbar={openSnackbarMock} closeSnackbar={closeSnackbarMock} />
   )
 
   // Simulates click on some buttons that opens and closes the Snackbar
