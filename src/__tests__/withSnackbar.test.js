@@ -6,14 +6,14 @@ import { mount } from 'enzyme'
 
 class ComponentMock extends React.Component {
   render() {
-    const { open, close, text, duration } = this.props
+    const { openSnackbar, closeSnackbar, text, duration } = this.props
 
     return (
       <div>
-        <button data-test="open" onClick={() => open(text, duration)}>
+        <button data-test="open" onClick={() => openSnackbar(text, duration)}>
           Open
         </button>
-        <button data-test="close" onClick={() => close()}>
+        <button data-test="close" onClick={() => closeSnackbar()}>
           Close
         </button>
       </div>

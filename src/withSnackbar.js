@@ -32,7 +32,13 @@ export function withSnackbar(
     }
 
     render() {
-      return <WrappedComponent open={this.open} close={this.close} {...this.props} />
+      return (
+        <WrappedComponent
+          openSnackbar={this.open}
+          closeSnackbar={this.close}
+          {...this.props}
+        />
+      )
     }
   }
 }
