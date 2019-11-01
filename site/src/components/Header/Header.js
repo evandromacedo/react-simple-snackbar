@@ -87,6 +87,9 @@ export default function() {
           <li>
             <a href="#api">API</a>
           </li>
+          <li>
+            <a href="#testing">Testing</a>
+          </li>
         </ul>
       </nav>
     </header>

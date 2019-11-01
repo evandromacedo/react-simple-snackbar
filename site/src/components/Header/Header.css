@@ -110,7 +110,7 @@
   grid-auto-flow: column;
 }
 
-@media (max-width: 420px) {
+@media (max-width: 502px) {
   .header__nav__list {
     grid-auto-flow: row;
   }
