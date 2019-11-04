@@ -218,6 +218,9 @@ To test components that use Snackbar functionalities, there are some approaches 
 
 ### Testing components that use `useSnackbar()` hook
 
+You can mock the implementation of `useSnackbar` to return an array containing `openSnackbar` and `closeSnackbar` as mocked functions:
+
+<!-- prettier-ignore -->
 ```jsx
 // Component.test.js
 import React from 'react'
@@ -228,9 +231,7 @@ import Component from './Component'
 // Mocks the open and close functions
 const openSnackbarMock = jest.fn()
 const closeSnackbarMock = jest.fn()
-jest
-  .spyOn(Snackbar, 'useSnackbar')
-  .mockImplementation(() => [openSnackbarMock, closeSnackbarMock])
+jest.spyOn(Snackbar, 'useSnackbar').mockImplementation(() => [openSnackbarMock, closeSnackbarMock])
 
 it('can test the openSnackbar and closeSnackbar functions', () => {
   const wrapper = shallow(<Component />)
