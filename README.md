@@ -57,7 +57,7 @@
   </a>
 </p>
 
-You can check a quick demo [here](http://evandromacedo.com/react-simple-snackbar/#demo).
+You can check a quick demo [here](https://evandromacedo.github.io/react-simple-snackbar/).
 
 ## Getting Started
 
