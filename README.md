@@ -277,7 +277,7 @@ it('can test the openSnackbar and closeSnackbar functions', () => {
   const openSnackbarMock = jest.fn()
   const closeSnackbarMock = jest.fn()
   const wrapper = shallow(
-    <ComponentMock openSnackbar={openSnackbarMock} closeSnackbar={closeSnackbarMock} />
+    <Component openSnackbar={openSnackbarMock} closeSnackbar={closeSnackbarMock} />
   )
 
   // Simulates click on some buttons that opens and closes the Snackbar
