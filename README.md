@@ -70,7 +70,7 @@ npm install --save react-simple-snackbar
 or
 
 ```
-yard add react-simple-snackbar
+yarn add react-simple-snackbar
 ```
 
 ### Basic Usage
