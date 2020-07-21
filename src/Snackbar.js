@@ -77,7 +77,9 @@ export default function Snackbar({ children }) {
         // Sets timeout to close the snackbar
         onEnter={() => {
           clearTimeout(timeoutId)
-          setTimeoutId(setTimeout(() => setOpen(false), duration))
+          if (duration >= 0) {
+            setTimeoutId(setTimeout(() => setOpen(false), duration))
+          }
         }}
         // Sets custom classNames based on "position"
         className={`${styles['snackbar-wrapper']} ${
