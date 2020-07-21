@@ -36,6 +36,7 @@ export function withSnackbar(
         <WrappedComponent
           openSnackbar={this.open}
           closeSnackbar={this.close}
+          snackbarIsOpen={this.context.snackbarIsOpen}
           {...this.props}
         />
       )

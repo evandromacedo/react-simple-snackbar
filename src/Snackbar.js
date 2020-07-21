@@ -63,7 +63,9 @@ export default function Snackbar({ children }) {
 
   // Returns the Provider that must wrap the application
   return (
-    <SnackbarContext.Provider value={{ openSnackbar, closeSnackbar }}>
+    <SnackbarContext.Provider
+      value={{ openSnackbar, closeSnackbar, snackbarIsOpen: open }}
+    >
       {children}
 
       {/* Renders Snackbar on the end of the page */}
