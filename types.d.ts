@@ -4,7 +4,7 @@ declare module 'react-simple-snackbar' {
     children?: React.ReactChild | React.ReactChildren | JSX.Element | JSX.Element[];
   };
 
-  export type SnackbarProvider = React.ComponentType<SnackbarProviderProps>;
+  export type SnackbarProvider = React.FC<SnackbarProviderProps>;
 
   /**
    * @argument node The node you want to show into the Snackbar.
