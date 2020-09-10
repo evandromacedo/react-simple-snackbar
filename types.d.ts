@@ -45,5 +45,6 @@ declare module 'react-simple-snackbar' {
   }
 
   export const withSnackbar: <P extends object>(Component: React.ComponentType<P>, options?: SnackbarOptions) => React.ComponentType<P & WithSnackbar>;
+
   export default SnackbarProvider;
 }
