@@ -37,7 +37,7 @@ declare module 'react-simple-snackbar' {
     closeStyle?: { [key: string]: string };
   }
 
-  export const useSnackbar: (options: SnackbarOptions) => [OpenSnackbar, CloseSnackbar];
+  export const useSnackbar: (options?: SnackbarOptions) => [OpenSnackbar, CloseSnackbar];
 
   export interface WithSnackbar {
     openSnackbar: OpenSnackbar;
