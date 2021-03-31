@@ -3,6 +3,7 @@
   "version": "1.1.10",
   "description": "A really simple React snackbar component",
   "main": "dist/index.js",
+  "types": "./types.d.ts",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
   "files": [
