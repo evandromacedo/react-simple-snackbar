@@ -61,6 +61,9 @@ export default function Snackbar({ children }) {
     setOpen(false)
   }
 
+  if(duration > 2147483647 )
+    setDuration(2147483647)
+    
   // Returns the Provider that must wrap the application
   return (
     <SnackbarContext.Provider value={{ openSnackbar, closeSnackbar }}>
