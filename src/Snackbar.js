@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useState, useRef } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import styles from './Snackbar.css'
 
@@ -61,6 +61,8 @@ export default function Snackbar({ children }) {
     setOpen(false)
   }
 
+  const nodeRef = useRef(null)
+
   // Returns the Provider that must wrap the application
   return (
     <SnackbarContext.Provider
@@ -72,6 +74,7 @@ export default function Snackbar({ children }) {
       <CSSTransition
         in={open}
         timeout={150}
+        nodeRef={nodeRef}
         mountOnEnter
         unmountOnExit
         // Sets timeout to close the snackbar
@@ -96,7 +99,7 @@ export default function Snackbar({ children }) {
         }}
       >
         {/* This div will be rendered with CSSTransition classNames */}
-        <div>
+        <div ref={nodeRef}>
           <div className={styles.snackbar} style={customStyles}>
             {/* Snackbar's text */}
             <div className={styles.snackbar__text}>{text}</div>
