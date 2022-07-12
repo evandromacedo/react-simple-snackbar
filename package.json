@@ -1,6 +1,6 @@
 {
 	"name": "react-simple-snackbar-fork",
-	"version": "1.1.16",
+	"version": "1.1.17",
 	"description": "A really simple React snackbar component",
 	"main": "dist/index.js",
 	"types": "./types.d.ts",
