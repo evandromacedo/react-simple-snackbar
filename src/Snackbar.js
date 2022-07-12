@@ -18,7 +18,7 @@ export const positions = [
 // Context used by the hook useSnackbar() and HoC withSnackbar()
 export const SnackbarContext = createContext(null)
 
-export default function Snackbar({ children }) {
+export default function Snackbar({ children, className }) {
   // Current open state
   const [open, setOpen] = useState(false)
   // Current timeout ID
@@ -99,8 +99,8 @@ export default function Snackbar({ children }) {
         }}
       >
         {/* This div will be rendered with CSSTransition classNames */}
-        <div ref={nodeRef}>
-          <div className={styles.snackbar} style={customStyles}>
+        <div ref={nodeRef} id="snackbar-root">
+          <div className={styles.snackbar + " " + (className || "")} style={customStyles}>
             {/* Snackbar's text */}
             <div className={styles.snackbar__text}>{text}</div>
 
