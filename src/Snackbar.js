@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useState, useRef } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import styles from './Snackbar.css'
 
@@ -18,7 +18,7 @@ export const positions = [
 // Context used by the hook useSnackbar() and HoC withSnackbar()
 export const SnackbarContext = createContext(null)
 
-export default function Snackbar({ children }) {
+export default function Snackbar({ children, className }) {
   // Current open state
   const [open, setOpen] = useState(false)
   // Current timeout ID
@@ -61,21 +61,28 @@ export default function Snackbar({ children }) {
     setOpen(false)
   }
 
+  const nodeRef = useRef(null)
+
   // Returns the Provider that must wrap the application
   return (
-    <SnackbarContext.Provider value={{ openSnackbar, closeSnackbar }}>
+    <SnackbarContext.Provider
+      value={{ openSnackbar, closeSnackbar, snackbarIsOpen: open }}
+    >
       {children}
 
       {/* Renders Snackbar on the end of the page */}
       <CSSTransition
         in={open}
         timeout={150}
+        nodeRef={nodeRef}
         mountOnEnter
         unmountOnExit
         // Sets timeout to close the snackbar
         onEnter={() => {
           clearTimeout(timeoutId)
-          setTimeoutId(setTimeout(() => setOpen(false), duration))
+          if (duration >= 0) {
+            setTimeoutId(setTimeout(() => setOpen(false), duration))
+          }
         }}
         // Sets custom classNames based on "position"
         className={`${styles['snackbar-wrapper']} ${
@@ -92,8 +99,8 @@ export default function Snackbar({ children }) {
         }}
       >
         {/* This div will be rendered with CSSTransition classNames */}
-        <div>
-          <div className={styles.snackbar} style={customStyles}>
+        <div ref={nodeRef} id="snackbar-root">
+          <div className={styles.snackbar + " " + (className || "")} style={customStyles}>
             {/* Snackbar's text */}
             <div className={styles.snackbar__text}>{text}</div>
 

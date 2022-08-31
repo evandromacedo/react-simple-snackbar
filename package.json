@@ -1,101 +1,101 @@
 {
-  "name": "react-simple-snackbar",
-  "version": "1.1.11",
-  "description": "A really simple React snackbar component",
-  "main": "dist/index.js",
-  "types": "./types.d.ts",
-  "module": "dist/index.es.js",
-  "jsnext:main": "dist/index.es.js",
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "start": "rollup -c -w",
-    "build": "NODE_ENV=production rollup -c",
-    "build:dev": "rollup -c",
-    "test": "jest",
-    "test:dev": "jest --watch",
-    "coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls",
-    "predeploy": "npm run build && cd site && npm install && npm run build",
-    "deploy": "gh-pages -d site/dist"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/evandromacedo/react-simple-snackbar.git"
-  },
-  "keywords": [
-    "react-simple-snackbar",
-    "react",
-    "simple",
-    "snackbar",
-    "component",
-    "hooks",
-    "hoc",
-    "high-order-component",
-    "alert",
-    "notification",
-    "message",
-    "toast",
-    "javascript"
-  ],
-  "author": "Evandro Macedo <evandro.hcm@gmail.com> (https://github.com/evandromacedo)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/evandromacedo/react-simple-snackbar/issues"
-  },
-  "homepage": "https://evandromacedo.github.io/react-simple-snackbar",
-  "devDependencies": {
-    "@babel/core": "^7.13.14",
-    "@babel/plugin-proposal-class-properties": "^7.13.0",
-    "@babel/plugin-transform-runtime": "^7.13.10",
-    "@babel/preset-env": "^7.13.12",
-    "@babel/preset-react": "^7.13.13",
-    "@testing-library/react-hooks": "^3.7.0",
-    "autoprefixer": "^9.8.6",
-    "babel-eslint": "^10.1.0",
-    "babel-jest": "^26.6.3",
-    "coveralls": "^3.1.0",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.6",
-    "enzyme-to-json": "^3.6.1",
-    "eslint": "^7.23.0",
-    "eslint-config-standard": "^14.1.1",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-node": "^10.0.0",
-    "eslint-plugin-promise": "^4.3.1",
-    "eslint-plugin-react": "^7.23.1",
-    "eslint-plugin-standard": "^4.1.0",
-    "gh-pages": "^2.2.0",
-    "identity-obj-proxy": "^3.0.0",
-    "jest": "^26.6.3",
-    "minimist": ">=1.2.2",
-    "prettier": "^1.19.1",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
-    "rollup": "^1.32.1",
-    "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-peer-deps-external": "^2.2.4",
-    "rollup-plugin-postcss": "^2.9.0",
-    "rollup-plugin-terser": "^7.0.2",
-    "rollup-plugin-url": "^3.0.1",
-    "serialize-javascript": "^5.0.1"
-  },
-  "peerDependencies": {
-    "react": "16.x",
-    "react-dom": "16.x"
-  },
-  "jest": {
-    "setupFilesAfterEnv": [
-      "<rootDir>/setupTests.js"
-    ],
-    "moduleNameMapper": {
-      "\\.(css|less)$": "identity-obj-proxy"
-    }
-  },
-  "dependencies": {
-    "@babel/runtime": "^7.13.10",
-    "react-transition-group": "^4.4.1"
-  }
+	"name": "react-simple-snackbar-fork",
+	"version": "1.1.17",
+	"description": "A really simple React snackbar component",
+	"main": "dist/index.js",
+	"types": "./types.d.ts",
+	"module": "dist/index.es.js",
+	"jsnext:main": "dist/index.es.js",
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"start": "rollup -c -w",
+		"build": "NODE_ENV=production rollup -c",
+		"build:dev": "rollup -c",
+		"test": "jest",
+		"test:dev": "jest --watch",
+		"coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls",
+		"predeploy": "npm run build && cd site && npm install && npm run build",
+		"deploy": "gh-pages -d site/dist"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/evandromacedo/react-simple-snackbar.git"
+	},
+	"keywords": [
+		"react-simple-snackbar",
+		"react",
+		"simple",
+		"snackbar",
+		"component",
+		"hooks",
+		"hoc",
+		"high-order-component",
+		"alert",
+		"notification",
+		"message",
+		"toast",
+		"javascript"
+	],
+	"author": "Evandro Macedo <evandro.hcm@gmail.com> (https://github.com/evandromacedo)",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/evandromacedo/react-simple-snackbar/issues"
+	},
+	"homepage": "https://evandromacedo.github.io/react-simple-snackbar",
+	"devDependencies": {
+		"@babel/core": "^7.13.14",
+		"@babel/plugin-proposal-class-properties": "^7.13.0",
+		"@babel/plugin-transform-runtime": "^7.13.10",
+		"@babel/preset-env": "^7.13.12",
+		"@babel/preset-react": "^7.13.13",
+		"@testing-library/react-hooks": "^3.7.0",
+		"autoprefixer": "^9.8.6",
+		"babel-eslint": "^10.1.0",
+		"babel-jest": "^26.6.3",
+		"coveralls": "^3.1.0",
+		"enzyme": "^3.11.0",
+		"enzyme-adapter-react-16": "^1.15.6",
+		"enzyme-to-json": "^3.6.1",
+		"eslint": "^7.23.0",
+		"eslint-config-standard": "^14.1.1",
+		"eslint-plugin-import": "^2.22.1",
+		"eslint-plugin-node": "^10.0.0",
+		"eslint-plugin-promise": "^4.3.1",
+		"eslint-plugin-react": "^7.23.1",
+		"eslint-plugin-standard": "^4.1.0",
+		"gh-pages": "^2.2.0",
+		"identity-obj-proxy": "^3.0.0",
+		"jest": "^26.6.3",
+		"minimist": ">=1.2.2",
+		"prettier": "^1.19.1",
+		"react": "^16.14.0",
+		"react-dom": "^16.14.0",
+		"rollup": "^1.32.1",
+		"rollup-plugin-babel": "^4.4.0",
+		"rollup-plugin-commonjs": "^10.1.0",
+		"rollup-plugin-node-resolve": "^5.2.0",
+		"rollup-plugin-peer-deps-external": "^2.2.4",
+		"rollup-plugin-postcss": "^2.9.0",
+		"rollup-plugin-terser": "^7.0.2",
+		"rollup-plugin-url": "^3.0.1",
+		"serialize-javascript": "^5.0.1"
+	},
+	"peerDependencies": {
+		"react": "16.x",
+		"react-dom": "16.x"
+	},
+	"jest": {
+		"setupFilesAfterEnv": [
+			"<rootDir>/setupTests.js"
+		],
+		"moduleNameMapper": {
+			"\\.(css|less)$": "identity-obj-proxy"
+		}
+	},
+	"dependencies": {
+		"@babel/runtime": "^7.13.10",
+		"react-transition-group": "^4.4.2"
+	}
 }

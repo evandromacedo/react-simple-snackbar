@@ -7,7 +7,7 @@ export const useSnackbar = ({
   style = {},
   closeStyle = {},
 } = {}) => {
-  const { openSnackbar, closeSnackbar } = useContext(SnackbarContext)
+  const { openSnackbar, closeSnackbar, snackbarIsOpen } = useContext(SnackbarContext)
 
   // If no correct position is passed, 'bottom-center' is set
   if (!positions.includes(position)) {
@@ -19,5 +19,5 @@ export const useSnackbar = ({
   }
 
   // Returns methods in hooks array way
-  return [open, closeSnackbar]
+  return [open, closeSnackbar, snackbarIsOpen]
 }
